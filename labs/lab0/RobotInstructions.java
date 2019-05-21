@@ -27,6 +27,7 @@ public class RobotInstructions  {
 		 * You will add instructions at the end of the code to cause the robot to move
 		 * as you desire.
 		 */
+		// Code moves robot to starred room
 		robot.forward(10);
 		robot.turnRight(90);
 		robot.forward(10);
