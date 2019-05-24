@@ -18,12 +18,22 @@ public class HiOne {
 		//    input String.
 		ArgsProcessor ap = new ArgsProcessor(args);
 		String name = ap.nextString("Enter value for arg 0");
+		
 		//
 		// Below this line, enter code so that this program's output says
 		//      Hi, Pat.  How are you?
 		// if the value of name is "Pat"
 		//
+		name = "Hi, " + name + ". How are you?";
+		
+		System.out.println(name);
 
+	}
+
+	private static void print(String string) {
+		// TODO Auto-generated method stub
+		
+		
 	}
 
 }

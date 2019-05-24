@@ -13,9 +13,12 @@ public class HiFour {
 		String s1 = ap.nextString("Enter value for arg 1");
 		String s2 = ap.nextString("Enter value for arg 2");
 		String s3 = ap.nextString("Enter value for arg 3");
+		
+		String greeting = "Greetings, " + s0 + ", " + s1 + ", " + s2 + ", and " + s3 + ". How are you?";
 		//
 		// Say hello to the names in s0 through s3.
 		//
+		System.out.println(greeting);
 
 	}
 }
