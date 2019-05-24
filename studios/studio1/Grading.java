@@ -29,8 +29,15 @@ public class Grading {
 		
 		if (tensdigit == 8 || tensdigit == 7) {
 		
-		boolean plusign = lettercheck > 7 && tensdigit > 6;
+		boolean plusign = lettercheck > 6 && tensdigit > 6;
 		boolean minussign = lettercheck < 3 && tensdigit > 6;
+		
+		System.out.println(name + ":");
+		System.out.println("Total Score: " + score);
+		System.out.println("Grade for this course: " + intgrade);
+		System.out.println("Final grade has a...");
+		System.out.println("Plus sign: " + plusign);
+		System.out.println("Minus sign: " + minussign);
 		}
 		else
 		{
