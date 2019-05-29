@@ -1,12 +1,26 @@
 package exercises2;
 
+import cse131.ArgsProcessor;
+
 public class Max {
 
 	public static void main(String[] args) {
 		//
 		// Below, prompt the user for two ints, x and y
 		//
+		ArgsProcessor ap = new ArgsProcessor(args);
+		int x = ap.nextInt("Enter x");
+		int y = ap.nextInt("Enter y");
 		
+		if (x < y) {
+			System.out.println("y is greater than x");
+		}
+		else if (x > y) {
+			System.out.println("x is greater than y");
+		}
+		else {
+			System.out.println("x and y are equal");
+		}
 		
 		
 		
