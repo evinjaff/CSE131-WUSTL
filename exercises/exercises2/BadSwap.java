@@ -24,7 +24,7 @@ public class BadSwap {
 		//      x and y?
 		//   Note that the bad swap executes only if x>y
 		//
-		// Your answer:
+		// Your answer: Because by setting x=y and y=x, any data stored about the original values is lost since there is no "middleman" variable that stores the original value which means x and y get turned into the same thing, the original value of y
 		//
 		//
 		//

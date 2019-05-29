@@ -8,6 +8,15 @@ public class CarefulDivide {
 		ArgsProcessor ap = new ArgsProcessor(args);
 		int numerator   = ap.nextInt("Enter numerator");
 		int denominator = ap.nextInt("Enter denominator");
+		
+		//integer division that catches div/0
+		
+		if (denominator == 0) {
+			System.out.println("Error: Division by zero");
+		}
+		else {
+			System.out.println("Quotient = " + numerator/denominator);
+		}
 
 		// Compute numerator / denominator
 		//  as an int result

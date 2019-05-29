@@ -5,7 +5,15 @@ public class CoinFlip {
 	public static void main(String[] args) {
 		//
 		// Use the random number generator
-		//    (Math.random())
+		boolean headTrue = 0.5 > Math.random();
+		
+		if(headTrue) {
+			System.out.println("Heads");
+		}		
+		else {
+			System.out.println("Tails");
+		}
+		
 		// so that this program prints
 		// heads or tails,
 		// each with probability 0.5
