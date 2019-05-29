@@ -43,18 +43,40 @@ public class Loops {
 		
 		// 0 to 9 inclusively
 		//    produces  0 1 2 3 4 5 6 7 8 9
+		System.out.println(" ");
+		int i = 0;
+		while(i<10){
+			System.out.print(i + " ");
+			i++;
+		}
 		
 		
 		// 1 to 10 inclusively
 		//    produces 1 2 3 4 5 6 7 8 9 10
+		System.out.println(" ");
+		int j = 1;
+		while (j<11) {
+			System.out.print(j + " ");
+			j++;
+		}
 		
 		
 		// 0 to 10, including 0, excluding 10
 		//    produces 0 1 2 3 4 5 6 7 8 9
-		
-		
+		System.out.println(" ");
+		int k = 0;
+		while (k<10) {
+			System.out.print(k + " ");
+			k++;
+		}
+		System.out.println(" ");
 		// like the one above, but jumping by 2
 		//    produces 0 2 4 6 8
+		int r = 0;
+		while (r<9) {
+			System.out.print(r + " ");
+			r = r + 2;
+		}
 	}
 
 }

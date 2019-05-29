@@ -5,6 +5,7 @@ import cse131.ArgsProcessor;
 public class Heads {
 
 	public static void main(String[] args) {
+		for (int comps = 0; comps != 100; comps++) {
 
 		// what are the concepts?
 		int numHeads = 0;
@@ -23,6 +24,7 @@ public class Heads {
 		
 		System.out.println("Number of flips was " + numFlips);
 
+	}
 	}
 
 }
