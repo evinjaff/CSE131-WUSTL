@@ -1,4 +1,4 @@
-package lab3;
+package lab1;
 
 import cse131.ArgsProcessor;
 
