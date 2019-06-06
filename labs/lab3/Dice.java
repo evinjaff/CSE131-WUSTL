@@ -7,60 +7,94 @@ public class Dice {
 		ArgsProcessor ap = new ArgsProcessor(args);
 		int diceQuant = ap.nextInt("Enter how many dice you want to roll");
 		int diceRolls = ap.nextInt("Enter how many times you want to roll the dice");
-		int sumRow = 0;
-
-		int output[][] = new int [diceQuant+ 10][diceRolls+ 10];
-
-		int origSum[][] = new int [2][6*diceQuant*diceRolls];
+		int sides = 6; //will eventually be an args variable
 		
-		for(int i = )
+		int output[][] = new int [diceRolls+2][diceQuant+1];
+
+		int sums[] = new int[diceRolls]; //Array that stores the sums of all rows
+
+		int outcomes[][] = new int[(sides*diceQuant)+9][3]; //2d array that's a table of all the possible outcomes of a dice throw 3 is a constant since there is no variable aspect to how it's stored
 
 
-		for(int i = 0; i < diceQuant; i++) {
+/*
+		for(int i = 0; i < diceQuant; i++) { // Creates header
 
-			output[0][i] = i+1;
-			if (output[0][i] > 9) {
-				System.out.print(output[0][i] + " ");
+			output[i][0] = i+1;
+			if (output[i][0] > 9) {
+				System.out.print(output[i][0] + " ");
 			}
 			else {
-				System.out.print(output[0][i] + "  ");
+				System.out.print(output[i][0] + "  ");
 			}
 		}
 		System.out.println("");
-		for(int i = 0; i < diceQuant; i++) {
+		for(int i = 0; i < diceQuant; i++) { // creates line break for header
 			System.out.print("---");
-		}
-		for(int rw=0;rw<diceRolls;rw++) {
-			sumRow = 0;
-			System.out.println("");
+		} 
+		*/
 
-
-			for(int col=0;col<diceQuant;col++) {
-
+		int rowSum = 0; //int that grabs the sum of all the outputs
+		for(int rw=0;rw<diceRolls;rw++) { //for loop that executes every row
+			rowSum=0;
+			//System.out.println("");
+			
+			for(int col=0;col<diceQuant;col++) {//executes every column
+			
 				// End of getting dice value
 
-				output[rw][col] = (int) (Math.random()*6) + 1;
+				output[rw][col] = (int) (Math.random()*sides) + 1;
+
+				rowSum = output[rw][col] + rowSum;
+
+				//System.out.print(output[rw][col] + "  ");
+				/*
 				if(output[rw][col] > 9) {
 					System.out.print(output[rw][col] + " ");
 				}
 				else {
 					System.out.print(output[rw][col] + "  ");
 				}
-				sumRow = output[rw][col] + sumRow;
-				
-			}
-			origSum[0][rw] = sumRow;
+				 */
 
-			System.out.println("");
-			System.out.println(sumRow);
-			System.out.println("");
-			System.out.println(origSum[0][rw]);
-			System.out.println("");
-			
-			if
+				if(col==diceQuant-1) {
+					output[rw][col+1] = rowSum;
+					//System.out.println(" |> " + output[rw][col+1] + "  <| ");
+					sums[rw] = rowSum; 
+				}
+
+			}
 
 		}
-		int sums[][] = new int [1000][2];
+		System.out.println("\nSum \tAmount of times it appeared \tPercentage of times it appeared ");
+		double numSum = 0;
+		//for loop that creates array of all possible sums
+		for(int i=diceQuant+1;i<6*diceQuant+1;i++) { //6 could be replaced with the number of sides. The i<6*diceQuant statement is trying to get the for loop to store every possible average outcome without going over
+			
+			outcomes[i][0] = i;
+			double sumFrequency = 0.0; //[] = new double [500];
+
+
+			for(int a=0;a<sums.length;a++) { //This will add +1 to the columns if any duplicates are there
+				if(sums[a] == outcomes[i][0]){
+					outcomes[i][1]++;
+					numSum = sums.length/1.0;
+				}
+				
+
+			}
+			
+			sumFrequency = Math.round((outcomes[i][1]/numSum)*1000.0)/10.0;
+			
+			if(outcomes[i][1] != 0) {
+				
+				System.out.print(outcomes[i][0]);
+				System.out.print("\t" + outcomes[i][1] + "\t \t \t \t" + sumFrequency + "% \n");
+			}
+		} 
+
+
+		// Checking for loop for duplicates
+
 	}
 
 
