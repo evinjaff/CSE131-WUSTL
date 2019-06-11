@@ -7,7 +7,7 @@ public class Dice {
 		ArgsProcessor ap = new ArgsProcessor(args);
 		int diceQuant = ap.nextInt("Enter how many dice you want to roll");
 		int diceRolls = ap.nextInt("Enter how many times you want to roll the dice");
-		int sides = 6; //will eventually be an args variable
+		int sides = ap.nextInt("Enter number of sides"); //will eventually be an args variable
 		
 		int output[][] = new int [diceRolls+2][diceQuant+1];
 
@@ -31,12 +31,12 @@ public class Dice {
 		for(int i = 0; i < diceQuant; i++) { // creates line break for header
 			System.out.print("---");
 		} 
-		*/
-
+		
+*/
 		int rowSum = 0; //int that grabs the sum of all the outputs
 		for(int rw=0;rw<diceRolls;rw++) { //for loop that executes every row
 			rowSum=0;
-			//System.out.println("");
+			System.out.println("");
 			
 			for(int col=0;col<diceQuant;col++) {//executes every column
 			
@@ -46,7 +46,7 @@ public class Dice {
 
 				rowSum = output[rw][col] + rowSum;
 
-				//System.out.print(output[rw][col] + "  ");
+				System.out.print(output[rw][col] + "  ");
 				/*
 				if(output[rw][col] > 9) {
 					System.out.print(output[rw][col] + " ");
@@ -58,7 +58,7 @@ public class Dice {
 
 				if(col==diceQuant-1) {
 					output[rw][col+1] = rowSum;
-					//System.out.println(" |> " + output[rw][col+1] + "  <| ");
+					System.out.println(" |> " + output[rw][col+1] + "  <| ");
 					sums[rw] = rowSum; 
 				}
 
@@ -68,7 +68,7 @@ public class Dice {
 		System.out.println("\nSum \tAmount of times it appeared \tPercentage of times it appeared ");
 		double numSum = 0;
 		//for loop that creates array of all possible sums
-		for(int i=diceQuant+1;i<6*diceQuant+1;i++) { //6 could be replaced with the number of sides. The i<6*diceQuant statement is trying to get the for loop to store every possible average outcome without going over
+		for(int i=diceQuant+1;i<sides*diceQuant+1;i++) { //6 could be replaced with the number of sides. The i<6*diceQuant statement is trying to get the for loop to store every possible average outcome without going over
 			
 			outcomes[i][0] = i;
 			double sumFrequency = 0.0; //[] = new double [500];
