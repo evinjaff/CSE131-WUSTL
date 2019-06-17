@@ -14,6 +14,9 @@ public class TestCrest {
 		ArgsProcessor ap = new ArgsProcessor(new String[] {});
 		boolean isGood = ap.nextBoolean("You like this? (true or false)");
 		assertTrue(isGood);
+		if (isGood) {
+			System.out.println("Awesome, you like the crest!");
+		}
 	}
 
 }
