@@ -17,24 +17,26 @@ public class interestcalculator {
 		double finalBalance = 0.0;
 		double delta = 0.0;
 		System.out.println("Day \t | Transaction |  Amount  | Balance");
-		System.out.println("--------------------------------------------------------------------------");
+		System.out.println("--------------------------------------------");
 		for(int dayCount=1;dayCount<=30;dayCount++) {
 			withdrawDeposit = Math.random(); // 0 means withdraw 1 means deposit
 			
 			if(withdrawDeposit < 0.5) {
 				acctBalance = acctBalance - withdrawAmount;
-				System.out.println("Day " + dayCount + "\t |  Withdrawn  |  $" + withdrawAmount + "  | $" + acctBalance);
+				System.out.println("Day " + dayCount + "\t |  Withdrawn  |  $" + String.format("%.2f", withdrawAmount) + "  | $" + String.format("%.2f", acctBalance));
 			}
 			else {
 				acctBalance = acctBalance + depositAmount;
-				System.out.println("Day " + dayCount + "\t |  Deposited  |  $" + depositAmount + "  | $" + acctBalance);
+				System.out.println("Day " + dayCount + "\t |  Deposited  |  $" + String.format("%.2f", depositAmount) + "  | $" + String.format("%.2f", acctBalance));
 			}
 			
 			if(dayCount == 30) {
 				interestAmt = Math.round((acctBalance*interestPct)*100)/100.00;
 				finalBalance = acctBalance+interestAmt;
-				System.out.println("Interest Earned: $" + interestAmt);
-				System.out.println("Final Balance: $" + finalBalance);
+				System.out.println("\nInterest Earned: $" + interestAmt);
+				System.out.println("Final Balance at the end of month: $" + finalBalance);
+				
+				
 			}
 		}
 		
