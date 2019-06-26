@@ -13,10 +13,10 @@ public class baseballstats {
 		
 		double battingAverage = (hits*1.0)/(atBats*1.0);
 		
-		boolean allStar = battingAverage > 0.270 & atBats > 200;
+		boolean allStar = battingAverage >= 0.270 && atBats > 200;
 		
-		System.out.println(name + "\n\tBatting Average: " + battingAverage);
-		System.out.println("\tAll-Star Worthy? " + allStar);
+		System.out.println("Player: " + name + "\nBatting Average: " + battingAverage);
+		System.out.println("All-Star Worthy? " + allStar);
 		
 		
 	}

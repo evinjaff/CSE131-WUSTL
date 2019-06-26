@@ -10,7 +10,7 @@ public class expectedvalue {
 		double p = ap.nextDouble("What is the probability your game startup succeeds \n0 = 0% \n.5 = 50% \n1 = 100%?");
 		
 		double gamerRoll = Math.random();
-		System.out.println(gamerRoll);
+		//System.out.println(gamerRoll);
 		//game startup $190,000 or $5,000
 		
 		//Programmer $110,000 - $160,000
