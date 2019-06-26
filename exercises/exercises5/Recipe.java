@@ -32,6 +32,7 @@ public class Recipe {
 		//System.delay(time);
 		
 		
+		
 		Oven.heat(200, 100, water);
 		
 		Oven.out(water);
@@ -54,7 +55,8 @@ public class Recipe {
 		
 		Oven.heat(58, 450, buttervanillayeast);
 		
-		System.delay(2.7e+6); // 2.7e+6 ms = 45 min
+		System.delay(2.7e+6); // 2.7e+6 ms = 45 minutes
+		
 		
 		
 		
