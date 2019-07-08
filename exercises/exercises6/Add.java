@@ -8,7 +8,12 @@ public class Add {
 	//   add(x,y) = add(x+1,y-1), otherwise
 	//
 	public static int add(int x, int y) {
-		return 0;  // FIXME
+		if (y <= 0) {
+			return x;
+		}
+			
+		return add(x+1, y-1);
+		
 	}
 	
 	//
@@ -16,7 +21,7 @@ public class Add {
 	//
 	//  For what values of x and y does your method operate correctly?
 	//
-	//  Your answer:
+	//  Your answer: all whole numbers
 	//
 	//  Can you complete the following method
 	//   so that it calls add but returns the correct answer
@@ -24,10 +29,14 @@ public class Add {
 	//  As a hint, consider that  (x+y) = -(-x + -y)
 	//
 	public static int addAny(int x, int y) {
-		if (y >= 0)
+		if (y >= 0) {
 			return add(x,y);
-		else
-			return 0; // FIXME
+		}
+		if (y==0) {
+			return 0;
+		}
+			return addAny(x-1, y+1);
+			
 	}
 
 }
