@@ -15,7 +15,7 @@ public class Triangles {
 		into a method that cuts the central triangle from a triangle. Then, set the program loose,
 		running until it eventually gets a return of there being no more triangles to cut. Supposedly,
 		This creates an infinite fractal, but you could allways add a hand brake of stopping the 
-		method once the triangle the program identifies is x amount of pixels tall. 
+		method once the identified triangle is x amount of pixels tall. 
 		 */
 	}
 
