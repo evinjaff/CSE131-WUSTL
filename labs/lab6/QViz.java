@@ -65,7 +65,7 @@ public class QViz {
 	 * Milliseconds for normal pause between views of the board.
 	 * Change this as you like to get slower or longer times.
 	 */
-	public static int pause = 1000;  // one second
+	public static int pause = 500;  // one second
 
 	/**
 	 * Clear the screen and draw the board
