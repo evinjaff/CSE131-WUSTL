@@ -35,6 +35,14 @@ public class PlayThatTune {
     public static void main(String[] args) {
     	
     	ArgsProcessor.useStdInput("music");
+    	ArgsProcessor ap = new ArgsProcessor(args);
+    	int n = ap.nextInt("Enter number of Frequency Factors");
+    	
+    	for(int i=0; i<n;i++) {
+    		int num = ap.nextInt("Enter numerator");
+    		int den = ap.nextInt("Enter denominator");
+    		double str = ap.nextDouble("Enter relative strength");
+    	}
 
         // repeat as long as there are more integers to read in
         while (!StdIn.isEmpty()) {

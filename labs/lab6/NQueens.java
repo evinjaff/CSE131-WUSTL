@@ -35,7 +35,46 @@ public class NQueens {
 		//
 		// FIXME
 		//
+		
+		helper(0, n, ans);
+		
 		return ans;
+	}
+	
+	public static boolean helper(int row, int n, boolean[][] board) {
+		
+		
+		 // End case
+		 //stop when our row is >= n
+		 if(row >= n) {
+			return true;
+		 }
+		 // put down a queen and check if valid
+		 
+		for(int col=0;col<board.length;col++) {
+			
+			if(Capture.whoCaptures(board, row, col) == null) {
+				board[row][col] = true;
+				
+				if(helper(row+1, n, board) == true) { 
+					return true;
+				}
+				
+				 //move queen if can't get solution
+				else{
+					board[row][col] = false;
+					
+				}
+				//move to next row
+			}
+			
+			
+		}
+		
+		 
+		 
+		
+		return false;
 	}
 	
 	public static void nqueens(int n) {

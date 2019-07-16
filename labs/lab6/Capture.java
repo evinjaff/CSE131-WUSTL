@@ -33,7 +33,7 @@ public class Capture {
 		//   You must replace the code below so that the CaptureTest passes
 		//   based on the instructions, comments, and videos about this
 		//
-		
+
 		int captorRow = 0;
 		int captorCol = 0;
 		/*
@@ -46,70 +46,70 @@ public class Capture {
 			}
 		}
 
-		*/
-		for(int rw=-1; rw<board.length;rw++) { //runs for every row
-			for(int cl=-1; cl<board.length;cl++) {
-				
-				 for (i = 0; i < col; i++) 
-			            if (board[row][i] == 1) 
-			                return new int[] { captorRow, captorCol };
-				
+		 */
+		for(int rw=0; rw<board.length;rw++) { //runs for every row
+			for(int cl=0; cl<board.length;cl++) {
+
+					if (board[rw][cl] == true) { 
+						if(rw == row) {
+							captorRow = rw;
+							captorCol = cl;
+							return new int[] { captorRow, captorCol };
+						}
+						// Same Column
+						if(cl == col) {
+							captorRow = rw;
+							captorCol = cl;
+							return new int[] { captorRow, captorCol };
+						}
+
+						// Diagonal (↗️)
+						if(col + row  == rw + cl) {
+							captorRow = rw;
+							captorCol = cl;
+							return new int[] { captorRow, captorCol };
+
+						}
+						// Diagonal (↖)
+
+						if(col-cl == row-rw) {
+							captorRow = rw;
+							captorCol = cl;
+							return new int[] { captorRow, captorCol };
+						}
+					}
 				//same Row
-					if(rw == row) {
-						captorRow = rw;
-						captorCol = cl;
-						return new int[] { captorRow, captorCol };
-					}
-					// Same Column
-					if(cl == col) {
-						captorRow = rw;
-						captorCol = cl;
-						return new int[] { captorRow, captorCol };
-					}
-					
-					// Diagonal (↗️)
-					if(col + row  == rw + cl) {
-						captorRow = rw;
-						captorCol = cl;
-						return new int[] { captorRow, captorCol };
-						
-					}
-					// Diagonal (↖)
-					
-					if(Math.abs(col-cl) == Math.abs(row-rw)) {
-						captorRow = rw;
-						captorCol = cl;
-						return new int[] { captorRow, captorCol };
-					}
-					
-					
-					
-					//if diagnonally accessible downleft
-					
-					
+				
+
+
+
+				//if diagnonally accessible downleft
+
+
 			}
 		}
-		
+		/*
 		whoCaptures(board, row + 1, col);
 		whoCaptures(board, row, col +1);
 		whoCaptures(board, row + 1, col + 1);
-		
-		return new int[] { captorRow, captorCol };
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		*/
+
+		return null;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	}
 }

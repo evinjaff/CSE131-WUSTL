@@ -16,12 +16,15 @@ public class Weather {
 			
 		String zip = ap.nextString("What zip code?");
 		
+		Jsoup.connect("...").timeout(10 * 1000).get();
 		Document doc = Jsoup.connect("http://www.wunderground.com/cgi-bin/findweather/getForecast?query="+zip).get();
 		String wholeThing = doc.toString();
 		//
 		// Get rid of the print of the whole thing
 		//
+		
 		System.out.println(wholeThing);
+		/*
 		//
 		// and instead do string searching and trimming 
 		// to isolate the temperature reading
@@ -32,6 +35,7 @@ public class Weather {
 		// And find one more statistic of interest and report that:
 		//
 		System.out.println("And xxxx is ");  // FIXME
+		*/
 
 	}
 

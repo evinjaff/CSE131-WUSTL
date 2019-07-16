@@ -12,7 +12,15 @@ public class TicTacToe  {
 	 * @return a 3x3 String[][] array with each element set to a single blank string (" ").
 	 */
 	public static String[][] genBoard() {
-		return null; // FIXME
+		String [][] board = new String [3][3];
+		
+		for(int rw = 0; rw<board.length;rw++) { 
+			for(int cl = 0;cl<board.length;cl++) {
+				board [rw] [cl] = " ";
+			}
+		}
+		
+		return board; 
 	}
 
 	/**
@@ -34,7 +42,12 @@ public class TicTacToe  {
 	 * @param row should be between 0 and 2, inclusively
 	 */
 	public static void verifyValidRow(int row) {
-		throw new UnsupportedOperationException("You must implement this method");
+		
+		if(row > 2 || row < 0) {
+			throw new IllegalArgumentException("Error: Row must be between 1 and 2");
+		}
+		
+		
 	}
 
 	/**
@@ -42,7 +55,10 @@ public class TicTacToe  {
 	 * @param col should be between 0 and 2, inclusively
 	 */
 	public static void verifyValidCol(int col) {
-		throw new UnsupportedOperationException("You must implement this method");
+		if(col > 2 || col < 0) {
+			throw new IllegalArgumentException("Error: Column must be between 1 and 2");
+		}
+	
 	}
 
 
@@ -84,9 +100,19 @@ public class TicTacToe  {
 		verifyValidPlayer(player);
 		verifyValidRow(row);
 		verifyValidCol(col);
-		
-		
-		return false; // FIXME
+
+		if(board[row][col] == " ") {
+			board[row][col] = player;
+			return true;
+		}
+
+		if(board[row][col] == "x" || board[row][col] == "o") {
+			return false;
+		}
+		return false;
+
+
+
 	}
 
 	/**
@@ -95,7 +121,20 @@ public class TicTacToe  {
 	 * @return true iff the board is full
 	 */
 	public static boolean boardFull(String[][] board) {
-		return true; // FIXME
+		int fullcount = 0;
+		for(int rw=0;rw<board.length;rw++) {
+			for(int cl=0;cl<board.length;cl++) {
+				if(board[rw][cl] == "x" || board[rw][cl] == "o") {
+					fullcount++;
+				}
+			}
+		}
+		if(fullcount > 8) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 
 	/**
@@ -108,7 +147,81 @@ public class TicTacToe  {
 	public static boolean winFor(String player, String[][] board) {
 		verifyValidPlayer(player);
 		
-		return true; // FIXME
+		int rookTally = 0;
+		
+		for(int i=0;i<board.length;i++){
+			if(board[0][i] == player && board[1][i] == player && board[2][i] == player) {
+				return true;
+			}
+		}
+		
+		for(int i=0;i<board.length;i++){
+			if(board[i][0] == player && board[i][1] == player && board[i][2] == player) {
+				return true;
+			}
+		}
+		
+		
+		/*
+		 * Works for:
+		 *   O $ $
+		 *   $ O $
+		 *   $ $ O
+		 * 
+		 */
+			
+				if(board[0][0] == player && board[1][1] == player && board[2][2] == player) {
+					return true;
+				}
+			
+		
+		
+		/*
+		 * Works for:
+		 * $ $ O
+		 * $ O $
+		 * O $ $
+		 */
+		
+		
+			
+			if(board[0][2] == player && board[1][1] == player && board[2][0] == player) {
+					return true;
+			}
+
+		
+		
+		
+		//check rows
+		/*
+		for(int k=0;k<board.length;k++) { // goes for every row
+			boolean [] cases = new boolean [board.length+1];
+			for(int i=0;i < board.length; i++) { // goes for every column
+				if(board[i][k] == player) {
+					cases[i] = true;
+				}
+			}
+			//For loop that checks the Array
+			
+			if(cases[1] == true && cases[2] == true && cases[3] == true) {
+				return true;
+			}
+		}
+		
+		for(int i = 0; i < 3; i++){
+            if(board[i][0] != s)
+                break;
+            if(i == 2){
+                //report win for s
+            }
+        }
+		*/
+		//horizontal case
+		
+		//diagonal case
+		
+		
+		return false; // FIXME
 	}
 
 }

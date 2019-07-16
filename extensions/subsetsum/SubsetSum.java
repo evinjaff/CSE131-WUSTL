@@ -11,6 +11,17 @@ public class SubsetSum {
 	public static int[] findSubset(int[] allnums, int sum) {
 		int[] solution = new int[7];
 		
+		if(sum == 0) {
+			return 0;
+		}
+		
+		for(int i= 0; i<6; i++) {
+			if(solution[1] + solution[2] = sum) {
+				return 
+			}
+		}
+		
+		
 		return solution;
 	}
 	

@@ -46,11 +46,11 @@ public class eightball {
 			System.out.println("strChoice= " + strChoice);
 			
 			if(strChoice >= 80) {
-				response = "Yes";
+				response = "Yes, it is fated to happen";
 			}
 			
 			if(strChoice >= 60 && strChoice < 80) {
-				response = "No";
+				response = "No, the fates won't allow it";
 			}
 			if(strChoice >= 40 && strChoice < 60) {
 				response = "It could happen";
@@ -70,7 +70,7 @@ public class eightball {
 					StdDraw.text(i, .5, response);
 					StdDraw.text(.5, i, response);
 				}
-				StdDraw.show(1000);
+				StdDraw.show(700);
 				drawCircle();
 			}
 			// blur right/up
@@ -87,24 +87,26 @@ public class eightball {
 			}
 			*/
 			
-			//blur down/left
+			//blur
 			for(double k = .2;k>=.5; k = k + .001) {
 				System.out.println("k = " + k);
 
 				for(double i = .4; i>k; i = i + .001) {
 					StdDraw.text(i, .5, response);
 					StdDraw.text(.5, i, response);
+					StdDraw.text(i, i, response);
+					
 				}
-				StdDraw.show(1000);
+				StdDraw.show(200);
 				drawCircle();
 			}
 
-			StdDraw.clear();
+			
 					
-			//StdDraw.text(.5000001, .5000001, response);
-			//StdDraw.text(.5, .5, response);
-			//StdDraw.text(.4999999, .4999999, response);
-			//StdDraw.show(750);
+			StdDraw.text(.5000001, .5000001, response);
+			StdDraw.text(.5, .5, response);
+			StdDraw.text(.4999999, .4999999, response);
+			StdDraw.show(200);
 			
 			
 

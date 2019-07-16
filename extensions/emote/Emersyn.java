@@ -33,12 +33,65 @@ public class Emersyn {
 		//
 		
 		//
-		// face
+		// face (Yellow circle)
 		//
-		
 		double faceRad = 0.9*Math.min(halfWidth, halfHeight);		
-		StdDraw.setPenColor(Color.GREEN); 
-		StdDraw.filledCircle(xCenter, yCenter, faceRad);	
+		if(howHot<0) {
+			StdDraw.setPenColor(Color.getHSBColor((float) (.48 - (howHot*.22)), 1, 1) ); 
+			System.out.println("howhot < 0!");
+		}
+		if(howHot>0){
+			StdDraw.setPenColor(Color.getHSBColor((float) (.18 - (howHot*.15)), 1, 1) );
+			System.out.println("howhot > 0!");
+		}
+		if(howHot == 0) {
+			StdDraw.setPenColor(Color.YELLOW);
+			System.out.println("Firing initial case!");
+		}
+		
+		StdDraw.filledCircle(xCenter, yCenter, faceRad);
+		
+		
+		StdDraw.setPenColor(Color.BLACK );
+		StdDraw.setPenRadius(.01);
+		
+		StdDraw.filledRectangle(.4, .6 + (howOther*-.03), .05, .01);
+		StdDraw.filledRectangle(.6, .6 + (howOther*-.03), .05, .01);
+		
+		
+		
+		//Draw mouth
+		//if(howHappy < .00000001) { This moves up and down
+		if(howHappy < 0) {
+			StdDraw.arc(.5, .15, .2, 85 + (howHappy*30), 95 - (howHappy*30));
+		}
+		if(howHappy > 0) {
+			StdDraw.arc(.5, .55, .2, 268 - (howHappy*30), 272 + (howHappy*30));
+		}
+		if(howHappy == 0) {
+			StdDraw.arc(.5, .55, .2, 269, 271);
+		}
+		
+		//}
+			
+		
+		
+		//System.out.println("howHappy: " + howHappy);
+		
+		//Draw the eyes
+			
+			StdDraw.setPenColor(Color.white);
+				StdDraw.filledCircle( .4, .5, .05);
+				StdDraw.filledCircle( .6, .5, .05);
+			StdDraw.setPenColor(Color.CYAN);
+				StdDraw.filledCircle( .4, .5, .025);
+				StdDraw.filledCircle( .6, .5, .025);
+			StdDraw.setPenColor(Color.black);
+				StdDraw.filledCircle( .4, .5, .01);
+				StdDraw.filledCircle( .6, .5, .01);
+				
+			System.out.println("HSB color hue: " + (float) (.6 - (howHot*3)));
+		
 		
 	}
 
