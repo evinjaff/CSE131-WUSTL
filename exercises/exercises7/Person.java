@@ -12,17 +12,17 @@ package exercises7;
  *
  */
 //           Name \/
-public class Person {  //Whole line is the constructor
+public class Person {  
 	
 	//Instace Variables
 	private int height, age;
 	
-	//Mutators \/
+	//Constructor \/
 	public Person(int height) {
 		this.height = height;
 		this.age    = 0;
 	}
-	
+	//Mutators \/
 	public void setHeight(int height) {
 		this.height = height;
 	}

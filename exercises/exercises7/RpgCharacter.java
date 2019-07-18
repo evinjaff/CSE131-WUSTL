@@ -20,6 +20,7 @@ public class RpgCharacter {  //Constructor
 		this.def = def;		
 		this.skill = skl;
 		this.luck = lck;
+		firstch == false;
 		}
 		else {
 			throw new Error("Error: Cannot have a Base Stat Total over 14");
@@ -60,4 +61,11 @@ public class RpgCharacter {  //Constructor
 		}
 		
 	}
+	
+	public int [] getStats(){
+		int [] stats =  {this.hitPoints, this.atk, this.def, this.skill, this.luck};
+		return stats;
+	}
 }
+
+
