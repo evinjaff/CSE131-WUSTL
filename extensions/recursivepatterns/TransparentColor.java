@@ -1,6 +1,6 @@
 package recursivepatterns;
 
-import java.awt.Color;
+import java.awt.*;
 
 import sedgewick.StdDraw;
 
@@ -21,7 +21,12 @@ public class TransparentColor {
 	 * @return a Color object of the same RGB value as supplied, but with the alpha value applied.
 	 */
 	public static Color transparentColor(Color c, int alpha) {
-		return c;   // FIXME
+	
+		
+		
+		//Pulls RGB Color then return it as a new object
+		return new Color(c.getRed(), c.getGreen(), c.getBlue(), alpha);
+		
 	}
 
 

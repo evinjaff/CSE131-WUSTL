@@ -83,19 +83,20 @@ public class Lines {
 		//
 		for (double r = 0.25; r < 0.5; r = r+.005) {
 			double s = 1-r;
-			/*
+			
 			drawLine(r,r, r, s); // from .25, .25 to .25, .75
 			drawLine(r, s, s, s); //from .25, .75 to .75, .75
 			
 			drawLine(s, s, s, r); //from .75, .75 to .75, .25
 			
 			drawLine(s, r, r, r); //from .75, .25 to .25, .25
-			*/
 			
+			/*
 			StdDraw.line(r,r, r, s);
 			StdDraw.line(r, s, s, s);
 			StdDraw.line(s, s, s, r);
 			StdDraw.line(s, r, r, r);
+			*/
 		}
 		System.out.println("done drawing");
 	}
