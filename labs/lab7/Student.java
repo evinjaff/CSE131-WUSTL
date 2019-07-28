@@ -12,8 +12,9 @@ public class Student {
 	 */
 
 	private String first, last;
-	private int id, attempt, pass, courses;
+	private int attempt, pass, courses;
 	private double gpPoints, bearBucks;
+	private final int id;
 
 	//All this information is necessary to generate
 	/*
@@ -95,7 +96,7 @@ public class Student {
 		if(grade > 1.7) {
 			for(int i=0; i<credits;i++) {
 				this.gpPoints += ((grade*doublecredits)/doublecredits);
-				System.out.println("gpPoints + " + ((grade*doublecredits)/doublecredits));
+				//System.out.println("gpPoints + " + ((grade*doublecredits)/doublecredits));
 			}
 			this.attempt += credits;
 			this.pass += credits;
@@ -104,7 +105,7 @@ public class Student {
 			this.attempt += credits;
 			for(int i=0; i<credits;i++) {
 				this.gpPoints += ((grade*doublecredits)/doublecredits);
-				System.out.println("gpPoints + " + ((grade*doublecredits)/doublecredits));
+				//System.out.println("gpPoints + " + ((grade*doublecredits)/doublecredits));
 			}
 		}
 		System.out.println("gpPoints Total: \n");
@@ -113,7 +114,7 @@ public class Student {
 
 	public double calculateGradePointAverage() {
 
-		System.out.println("GP Points:" + this.gpPoints);
+		//System.out.println("GP Points:" + this.gpPoints);
 		return this.gpPoints/this.attempt;		
 
 
@@ -140,28 +141,29 @@ public class Student {
 	}
 
 	public double cashOutBearBucks() {
-		if(this.bearBucks > 9.99) {
+		if(this.getBearBucksBalance() >= 10) {
 			double bearbucksstore = this.bearBucks -10;
 			this.bearBucks = 0;
 			return bearbucksstore;
 		}
+		this.bearBucks = 0;
 		return 0;
 	}
 
 	
 
 	public Student createLegacy(String firstName, Student otherParent, boolean isHyphenated, int id) {
-		int legacyBalance = 0;
-		//System.out.println("otherParent.getBearBucksBalance(): " + otherParent.getBearBucksBalance() + "\nthis.getBearBucksBalance(): " + this.getBearBucksBalance());
-
-		legacyBalance = (int) (otherParent.cashOutBearBucks()) + (int)(this.cashOutBearBucks());
+		double legacyBalance = 0;
+		System.out.println("otherParent.getBearBucksBalance(): " + otherParent.getBearBucksBalance() + "\nthis.getBearBucksBalance(): " + this.getBearBucksBalance());
+		//System.out.println("otherParent.getBearBucksBalance(): " + otherParent.cashOutBearBucks() + "\nthis.getBearBucksBalance(): " + this.cashOutBearBucks());
+		legacyBalance = otherParent.cashOutBearBucks() + this.cashOutBearBucks();
 		
 		//System.out.println("Legacy Balance: " + legacyBalance);
 		
 		
 		
 
-		System.out.println("Legacy Balance is: " + legacyBalance);
+		System.out.println("Legacy Balance is: " + legacyBalance + "\n\n\n");
 		
 		
 		if(isHyphenated) {
