@@ -11,7 +11,7 @@ public class DensePolynomial implements Polynomial{
 	public DensePolynomial() {
 		this.poly = new double [1];
 	}
-	
+
 	public int getLength() {
 		return this.poly.length;
 	}
@@ -166,8 +166,8 @@ public class DensePolynomial implements Polynomial{
 		 */
 	}
 
-	
-	
+
+
 	/**
 	 * Return the degree of this Polynomial, computed as the highest degree Term of
 	 * this Polynomial over all Terms with non-zero coefficients. The degree of all
@@ -183,11 +183,11 @@ public class DensePolynomial implements Polynomial{
 				degstore = i;
 			}
 		}
-		
-		
+
+
 		return degstore;
 	}
-	
+
 	/**
 	 * Returns the coefficient of the term at the specified degree. If no such term
 	 * exists in the Polynomial, 0.0 should be returned.
@@ -195,24 +195,24 @@ public class DensePolynomial implements Polynomial{
 	 * @param degree of interest
 	 * @return coefficient of the degree of interest
 	 */
-	
+
 	@Override
 	public double getCoefficientAtDegree(int degree) {
-		
+
 		int degnew = degree-1;
-		
+
 		//return this.poly[degree-1];
-		
-		
+
+
 		try {
 			return this.poly[degree];
 		}
 		catch(Exception ArrayIndexOutOfBoundsException){
 			return 0.0;
 		}
-		
-		
-		
+
+
+
 	}
 
 	@Override
@@ -225,44 +225,44 @@ public class DensePolynomial implements Polynomial{
 	 * @return the sum of all terms evaluated at x
 	 */
 	public double evaluate(double x) {
-		
+
 		double solution = this.poly[0];
-		
+
 		for (int i=1; i<this.poly.length; i++) {
-			
+
 			if(Math.pow(this.poly[i]*x, i) != 0) {
-            solution = solution + (this.poly[i]*(Math.pow(x, i)));
-            
-            //System.out.println("X = " + x);
-            
-           // System.out.println("Solution " + solution);
-            
-            //System.out.println(this.poly[i]*x + " to the power of " + i + " is " + Math.pow(this.poly[i]*x, i));
-            
-            
+				solution = solution + (this.poly[i]*(Math.pow(x, i)));
+
+				//System.out.println("X = " + x);
+
+				// System.out.println("Solution " + solution);
+
+				//System.out.println(this.poly[i]*x + " to the power of " + i + " is " + Math.pow(this.poly[i]*x, i));
+
+
 			}
 			else {
-				
+
 			}
-			
+
 			System.out.println();
-        }
-		
+		}
+
 		return solution;
-		
+
 		/*
-		 
+
 		if(this.poly.length == 1) {
 			return this.poly [0];
 		}
-		
+
 		if(this.poly.length == 2) {
 			double solution = x;
 			solution = solution - this.poly[1];
 			solution = solution/this.poly[1]; 
-			
+
 		}
-		
+
 		if(this.poly.length == 3) {
 			double solution = x;
 			// constant
@@ -272,79 +272,79 @@ public class DensePolynomial implements Polynomial{
 			// X^2
 			solution = solution/(Math.sqrt(this.poly[2]));
 		}
-		
-		
+
+
 		return 0.0;
 		//getCoefficientAtDegree(x);
-		  
+
 		 */
-		
-		
-		
-        
-   
-        /*
+
+
+
+
+
+		/*
         double [] flip = new double [this.poly.length];
-        
+
         for(int i=0;i<this.poly.length;i++) {
         	int flipLength = (this.poly.length-1)-i;
         	flip[flipLength] = this.poly[i];
-        	
-        	
+
+
         	System.out.println("flip[" + flipLength + "] = " + flip[flipLength]);
         }
-        
+
         double solution = this.poly[0];   
         // Let us evaluate value of 2x3 - 6x2 + 2x - 1 for x = 3 
-         
-        
+
+
         double result = poly[0];
-        
+
         for (int i=1; i<this.poly.length; i++) {
             result = result*x + poly[i];
         }
-        
+
         return result;
-		*/
-		
-	     
-		
+		 */
+
+
+
 	}
 
 	@Override
 	public Polynomial derivative() {
 		// TODO Auto-generated method stub
-		
+
 		if(this.poly.length == 1) {
 			double [] poly = {0.0};
 			DensePolynomial p = new DensePolynomial(0, 1, poly);
-			
+
 			return p;
 		}
-		
+
 		if(this.poly.length == 2) {
-			
+
 			double [] derivativemonomial = new double [this.poly.length];
-			
+
 			derivativemonomial[0] = this.poly[1];
-			
-			
-			
+
+
+
 			DensePolynomial p = new DensePolynomial(0, 1, derivativemonomial);
-			
+
 			return p;
 		}
-		
+
 		double [] derivatives = new double [this.poly.length]; 
 		for(int i=2;i<this.poly.length;i++) {
-			
+
 			if(i-1>0) {
-			
+
 				derivatives[i-1] = this.poly[i]*i;
-				
+
 			}
 			derivatives[0] = this.poly[1];
-					
+
 			// 2x^2 > 4x > 4 > 0
 		}
 		DensePolynomial p = new DensePolynomial(0, 1, derivatives);
@@ -360,20 +360,20 @@ public class DensePolynomial implements Polynomial{
 	 */
 	@Override
 	public DensePolynomial sum(Polynomial other) {
-		
+
 		DensePolynomial other2 = (DensePolynomial)other;
-		
+
 		if(this.getLength() == other2.getLength()) {
 			double[] sum = new double [this.getLength()];
 			for(int i=0;i<other2.getLength();i++) {
 				sum[i] = other2.poly[i] + this.poly[i];
 			}
 			DensePolynomial sumobj = new DensePolynomial(0, 1, sum);
-			
+
 			return sumobj;
-			
+
 		}
-		
+
 		if(this.getLength() > other2.getLength()) {
 			double[] sum2 = new double [this.getLength()];
 
@@ -384,13 +384,13 @@ public class DensePolynomial implements Polynomial{
 				catch(Exception ArrayIndexOutOfBoundsException) {
 					sum2[i] = this.poly[i];
 				}
-				
+
 			}
-			
+
 			DensePolynomial sumobj = new DensePolynomial(0, 1, sum2);
-			
+
 			return sumobj;
-			
+
 		}
 		if(this.getLength() < other2.getLength()) {
 			double[] sum3 = new double [other2.poly.length];
@@ -402,13 +402,13 @@ public class DensePolynomial implements Polynomial{
 				catch(Exception ArrayIndexOutOfBoundsException) {
 					sum3[i] = other2.poly[i];
 				}
-				
+
 			}
-			
+
 			DensePolynomial sumobj = new DensePolynomial(0, 1, sum3);
-			
+
 			return sumobj;
-			
+
 		}
 		/*
 		if(this.getLength() < other2.getLength()) {
@@ -417,42 +417,41 @@ public class DensePolynomial implements Polynomial{
 				sum[i] = other2.poly[i] + this.poly[i];
 			}
 		}
-		*/
+		 */
 		return other2;
-		
+
 	}
 
 	@Override
 	public String toString() {
-		
+
 		String statement = "DensePolynomial [poly= ";
-		
+
 		for(int i=1;i<this.poly.length;i++) {
-			
+
 			if(i == 1) {
 				statement += " " + this.poly[i] + "x ";
 			}
-			
+
 			statement += " " + this.poly[i] + "x^" + i;
 		}	
-		
+
 		statement += this.poly[0];
-		
-		System.out.println(statement);
+
 		return statement;
-		
-		
-		
+
+
+
 		// + " x degrees = " + this.getLength() + "]";
 	}
 
-	
-	
-	
 
 
 
-	
+
+
+
+
 
 
 }
