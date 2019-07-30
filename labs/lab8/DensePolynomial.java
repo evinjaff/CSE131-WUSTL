@@ -363,36 +363,90 @@ public class DensePolynomial implements Polynomial{
 		
 		DensePolynomial other2 = (DensePolynomial)other;
 		
-		if(this.getLength() == other.getLength()) {
+		if(this.getLength() == other2.getLength()) {
 			double[] sum = new double [this.getLength()];
-			for(int i=0;i<other.getLength();i++) {
-				sum[i] = other.poly[i] + this.poly[i];
+			for(int i=0;i<other2.getLength();i++) {
+				sum[i] = other2.poly[i] + this.poly[i];
 			}
+			DensePolynomial sumobj = new DensePolynomial(0, 1, sum);
+			
+			return sumobj;
 			
 		}
 		
-		if(this.getLength() > other.getLength()) {
-			double[] sum = new double [this.getLength()];
+		if(this.getLength() > other2.getLength()) {
+			double[] sum2 = new double [this.getLength()];
 
 			for(int i=0;i<this.getLength();i++) {
 				try {
-					sum[i] = other.poly[i] + this.poly[i];
+					sum2[i] = other2.poly[i] + this.poly[i];
 				}
 				catch(Exception ArrayIndexOutOfBoundsException) {
-					sum[i] = this.poly[i];
+					sum2[i] = this.poly[i];
 				}
 				
 			}
 			
+			DensePolynomial sumobj = new DensePolynomial(0, 1, sum2);
+			
+			return sumobj;
+			
 		}
-		
-		if(this.getLength() < other.getLength()) {
-			double[] sum = new double [other.getLength()];
-			for(int i=0;i<other.getLength();i++) {
-				sum[i] = other.poly[i] + this.poly[i];
+		if(this.getLength() < other2.getLength()) {
+			double[] sum3 = new double [other2.poly.length];
+
+			for(int i=0;i<other2.getLength();i++) {
+				try {
+					sum3[i] = other2.poly[i] + this.poly[i];
+				}
+				catch(Exception ArrayIndexOutOfBoundsException) {
+					sum3[i] = other2.poly[i];
+				}
+				
+			}
+			
+			DensePolynomial sumobj = new DensePolynomial(0, 1, sum3);
+			
+			return sumobj;
+			
+		}
+		/*
+		if(this.getLength() < other2.getLength()) {
+			double[] sum = new double [other2.getLength()];
+			for(int i=0;i<other2.getLength();i++) {
+				sum[i] = other2.poly[i] + this.poly[i];
 			}
 		}
+		*/
+		return other2;
+		
 	}
+
+	@Override
+	public String toString() {
+		
+		String statement = "DensePolynomial [poly= ";
+		
+		for(int i=1;i<this.poly.length;i++) {
+			
+			if(i == 1) {
+				statement += " " + this.poly[i] + "x ";
+			}
+			
+			statement += " " + this.poly[i] + "x^" + i;
+		}	
+		
+		statement += this.poly[0];
+		
+		System.out.println(statement);
+		return statement;
+		
+		
+		
+		// + " x degrees = " + this.getLength() + "]";
+	}
+
+	
 	
 	
 
