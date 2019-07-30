@@ -6,6 +6,10 @@ import java.util.List;
 import java.util.Set;
 
 public class UsingSet {
+	
+	public interface Set<String>{
+		
+	}
 
 	public static void main(String[] args) {
 		//
@@ -14,6 +18,18 @@ public class UsingSet {
 		//      copied and pasted from 
 		//      your solution to UsingList)
 		//
+		
+		
+		
+		HashSet<String> eating = new HashSet< String>();
+		
+		eating.add("open mouth");
+		eating.add("insert food");
+		eating.add("chew");
+		eating.add("chew");
+		eating.add("swallow");
+		
+		System.out.println(eating);
 
 	}
 

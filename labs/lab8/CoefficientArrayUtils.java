@@ -17,7 +17,7 @@ public class CoefficientArrayUtils {
 	 *         the specified degree
 	 */
 	public static int calculateArrayLengthRequiredFor(int degree) {
-		throw new NotYetImplementedException("delete this line of code and implement this method.");
+		return degree+1;
 	}
 
 	/**
@@ -44,7 +44,21 @@ public class CoefficientArrayUtils {
 	 *         the array length of the specified previous coefficients.
 	 */
 	public static int calculateArrayLengthRequiredFor(int degree, double[] prevCoefficients) {
-		throw new NotYetImplementedException("delete this line of code and implement this method.");
+		int initLength = degree+1;
+		
+		if(degree > prevCoefficients.length) {
+			return degree+1;
+		}
+		
+		if(degree < prevCoefficients.length) {
+			return prevCoefficients.length;
+		}
+		
+		
+		
+		return initLength;
+		
+		
 	}
 
 	/**
@@ -71,6 +85,59 @@ public class CoefficientArrayUtils {
 	 *         result of adding coefficient*x^degree to the prevCoefficients array.
 	 */
 	public static double[] createNextCoefficients(double coefficient, int degree, double[] prevCoefficients) {
-		throw new NotYetImplementedException("delete this line of code and implement this method.");
+		int arrayDiff = degree - prevCoefficients.length;
+		
+		if(degree > prevCoefficients.length) {
+			double newCoefficients [] = new double [calculateArrayLengthRequiredFor(degree)];
+			for(int i=0;i<prevCoefficients.length;i++) {
+				newCoefficients[i] = prevCoefficients[i];
+			}
+			
+			newCoefficients[degree] = coefficient;
+			
+			return newCoefficients;
+		}
+		
+		if(degree < prevCoefficients.length) {
+			double newCoefficients [] = prevCoefficients.clone();
+			
+			/*double newCoefficients [] = new double [calculateArrayLengthRequiredFor(degree)];
+			for(int i=0;i<prevCoefficients.length;i++) {
+				newCoefficients[i] = prevCoefficients[i];
+			}*/
+			
+			
+			newCoefficients[degree] += coefficient;
+			
+			
+			
+			
+			
+			return newCoefficients;
+		}
+		
+		if(degree == prevCoefficients.length) {
+			//double newCoefficients [] = prevCoefficients.clone();
+			
+			double newCoefficients [] = new double [calculateArrayLengthRequiredFor(degree)];
+			for(int i=0;i<prevCoefficients.length;i++) {
+				newCoefficients[i] = prevCoefficients[i];
+			}
+			
+			newCoefficients[degree] = coefficient;
+			
+			return newCoefficients;
+		}
+		
+		if(coefficient == 0) {
+			return prevCoefficients;
+		}
+		
+		
+		
+		double [] me = {0};
+		
+		return me;
+		
 	}
 }
