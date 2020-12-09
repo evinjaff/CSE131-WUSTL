@@ -13,7 +13,36 @@ public class Apartment {
 	 * @return
 	 */
 	public static double findBestValueAfterStopAtK(double[] values, int k) {
-		return 0.0; //FIXME
+		double maxStore = 0.0;
+		double avgEr = 0.0;
+		int count = 0;
+		for(int i=0;i<=k;i++) {
+			if(values[i] > maxStore) {
+				maxStore = values[i];
+			}
+			avgEr += values[i];
+			count = i;
+		}
+		
+		avgEr = avgEr/(k+1);
+		
+		for(int i=count;i<values.length;i++) {
+		if(values[k] > avgEr) {
+			maxStore = values[k];
+			return maxStore;
+		}
+		}
+		
+		/*
+		double secondMax = 0.0;
+		for(int j=k;j<values.length;j++) {
+			if(values[j] > maxStore) {
+				secondMax = values[j];
+			}
+		}
+		*/
+		
+		return maxStore; //FIXME
 	}
 	
 	/**

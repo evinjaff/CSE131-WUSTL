@@ -9,14 +9,27 @@ public class Matrix {
 	 * The Matrix is based on the supplied two-dimensional array of values.
 	 * Be sure to make your own copy of the values, so that changes to the
 	 *    array outside of this class do not affect your work.
+	 * @param values 
 	 * @param values
 	 */
-	public Matrix(double[][] in) {
-		values = null;  // FIXME -- make a copy of in
-		                //  this is not the same thing as writing:
-		                //  values = in
-	}
 	
+	
+	
+	public Matrix(double[][] in) {
+		
+		double [][] nonPointer = new double[in.length][in.length];
+		
+		for(int i=0;i<in.length;i++) {
+			for(int j=0;j<in.length;j++) {
+				nonPointer[i][j] = in[i][j];
+			}
+		}
+		
+		this.values = nonPointer;
+	}
+
+
+
 	public double getValue(int row, int col) {
 		return this.values[row][col];  // Do not change this!
 	}
@@ -41,7 +54,19 @@ public class Matrix {
 	 * @return true iff the arrays have the same shape and contents
 	 */
 	private static boolean arraysAreEqual(double[][] one, double[][] two) {
-		return false; // FIXME
+		if(one.length != two.length) {
+			return false;
+		}
+		boolean sameValue = true;
+		
+		for(int i=0;i<one.length;i++) {
+			for(int j=0;j<one.length;j++) {
+				if(one[i][j] != two[i][j]) {
+					sameValue = false;
+				}
+			}
+		}
+		return sameValue; // FIXME
 	}
 	
 	/**
@@ -67,7 +92,28 @@ public class Matrix {
 	}
 	
 	public Matrix plus(Matrix other) {
-		return null; // FIXME
+		
+		if(other.values.length == this.values.length) {
+
+
+			double[][] newValue = new double [this.values.length][this.values.length];
+
+			for(int i=0;i<this.values.length;i++) {
+				for(int j=0;j<this.values.length;j++) {
+					newValue[i][j] = this.values[i][j] + other.values[i][j];
+				}
+			}
+			
+			return new Matrix(newValue);
+		}
+		else {
+			throw new IllegalArgumentException("Error: Matricies do not have identitcal dimensions");
+		}
+		
+		
+		
+		
+		
 	}
 	
 	/**
@@ -95,7 +141,17 @@ public class Matrix {
 	 * @param factor the amount by which to scale each element of row i
 	 */
 	public void scaleRow(int i, double factor) {
-		// FIXME
+		try {
+			for(int k=0;k<this.values.length;k++) {
+			
+				this.values[i][k] = this.values[i][k]*factor;
+				
+				
+			}
+		}
+		catch(Exception ArrayIndexOutOfBoundsException) {
+			throw new IllegalArgumentException("Error: Bad Scale");
+		}
 		
 	}
 
@@ -105,8 +161,15 @@ public class Matrix {
 	 * @param j
 	 */
 	public void addRows(int i, int j) {
-		// FIXME
-		
+		//try {
+		for(int k=0;k<this.values.length;k++) {
+			this.values[j][k] = this.values[i][k] + this.values[j][k];
+		}
+		//}
+		//catch(Exception ArrayIndexOutOfBoundsException) {
+		//	throw new IllegalArgumentException("Error: Bad Scale");
+		//}
+
 	}
 	
 	/**

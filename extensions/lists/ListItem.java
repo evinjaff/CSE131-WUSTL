@@ -27,6 +27,11 @@ public class ListItem {
 	 * @return
 	 */
 	public ListItem duplicate() {
+		if() {
+			
+		}
+		
+		
 		return null; // FIXME
 	}
 

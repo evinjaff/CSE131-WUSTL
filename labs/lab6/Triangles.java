@@ -44,7 +44,7 @@ public class Triangles {
 	public static void main(String[] args) {
 		
 		
-		triangle(0, 0, 1, 5);
+		triangle(0, 0, 1, 9);
 		
 		// TODO Auto-generated method stub
 		/*

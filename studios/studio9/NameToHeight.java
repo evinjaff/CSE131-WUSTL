@@ -20,6 +20,31 @@ public class NameToHeight {
 	public static void main(String[] args) {
 		ArgsProcessor ap = new ArgsProcessor(args);
 		
-		throw new NotYetImplementedException("delete this line of code and implement this method.");
+		
+		Map<String, Integer> heights = new HashMap<String, Integer>();
+		
+		Integer evinHeight = new Integer(72);
+		Integer ShaqHeight = new Integer(85);
+		
+		heights.put("Evin", ShaqHeight);
+		heights.put("Shaq", ShaqHeight);
+		
+		while(true) {
+			String input = ap.nextString("Enter team member's height");
+			
+			if(heights.get(input) != null) {
+				System.out.println(input + " is " + heights.get(input) + " inches tall");
+			}
+			else if(input.equals("end")) {
+				System.exit(0);
+			}
+			else {
+				System.out.println("Error: Unable to understand who person " + input + " is");
+			}
+			
+			
+			
+		}
+		
 	}
 }
